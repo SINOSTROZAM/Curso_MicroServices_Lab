@@ -11,7 +11,7 @@
     "proto:pbts": "pbts -o ./types/index.d.ts ./src/protos.js",
     "proto": "npm run proto:pbjs && npm run proto:pbts && npm run proto:js && npm run proto:ts",
     "copyfiles": "rimraf ./lib/protos*.* && rimraf ./lib system*.* && cpy src/*.js src/*.d.ts lib && cpy --parents --cwd=src system ../lib",
-    "build": "rimraf ./lib && rimraf ./src/protos.js && npm run proto && tsc && npm run copyfiles",
+    "build": "rimraf ./lib && rimraf ./src/protos.js && npm run proto && tsc && npm run copyfiles"
   },
   "author": "",
   "license": "ISC",

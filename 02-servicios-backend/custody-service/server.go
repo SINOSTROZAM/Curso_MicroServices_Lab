@@ -45,18 +45,19 @@ func main() {
 	if err := initdb.DAOInit(dsn, "psql"); err != nil {
 		logger.Panic(err)
 	}
-	if err := dao.DB.AutoMigrate(&model.Invoice{}, &model.InvoiceItem{}); err != nil {
+	if err := dao.DB.AutoMigrate(&model.Custody{}); err != nil {
 		logger.Panic("no se pudo migrar tablas", err)
 	}
 
+	
 	go func() {
-		listener, err := net.Listen("tcp", "0.0.0.0:5000")
+		listener, err := net.Listen("tcp", "0.0.0.0:5001")
 		if err != nil {
 			errChannel <- err
 			return
 		}
 
-		logger.Info("Iniciando Servidor gRPC")
+		logger.Info("Iniciando Servidor gRPC, funciona correctamente")
 		if err := server.Serve(listener); err != nil {
 			errChannel <- err
 			return

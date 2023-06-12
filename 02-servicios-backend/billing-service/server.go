@@ -39,6 +39,7 @@ func main() {
 
 	dsn := os.Getenv("dsn")
 	if len(dsn) == 0 {
+		//se puede modificar el host , en nuestro caso es localhost
 		dsn = "host=psql-backend.backend port=5432 user=postgres password=postgres dbname=lab sslmode=disable"
 	}
 

@@ -1,5 +1,6 @@
 import { Express, NextFunction, Router, Request, Response } from "express";
 import * as billingController from '../controllers/billingController';
+import * as custodyController from '../controllers/custodyController';
 import * as commons from '../commons/commons';
 
 const logger = commons.getLogger();
@@ -18,6 +19,8 @@ export const setup = (root: string, app: Express) => {
     });
 
     router.post('/billing/create', asyncMiddleware(billingController.create));
+    router.get('/custody/get', asyncMiddleware(custodyController.get));
+    router.post('/custody/addCustody', asyncMiddleware(custodyController.addCustody));
 
     router.use((err: Error, req: Request, res: Response, next: NextFunction) => {
         logger.error(err);
