@@ -12,7 +12,7 @@ const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
 
 const protoDescriptor = grpc.loadPackageDefinition(packageDefinition);
 
-const endpoint = process.env.CUSTODY_BACKED || 'custody-service.backend:5001';
+const endpoint = process.env.CUSTODY_BACKED || 'custody-service.backend:5000';
 
 const creds = grpc.credentials.createInsecure();
 const service = (protoDescriptor.lab as any).system.custody.CustodyService;
